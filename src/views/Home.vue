@@ -1,18 +1,41 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <comp-card
+      v-for="(comp, index) in compPool"
+      :key="index"
+      :comp-index="index"
+    />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import CompCard from '@/components/CompCard.vue';
+import { mapState, mapMutations } from 'vuex';
+
+import initState from './test-initState';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    CompCard,
+  },
+  data() {
+    return {
+      initState,
+    };
+  },
+  computed: {
+    ...mapState([
+      'compPool',
+    ]),
+  },
+  mounted() {
+    this.LOAD_STATE(initState);
+  },
+  methods: {
+    ...mapMutations([
+      'LOAD_STATE',
+    ]),
   },
 };
 </script>
