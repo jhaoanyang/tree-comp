@@ -1,4 +1,38 @@
 module.exports = {
-  compPool: ['title', 'searchbar'],
-  propPool: ['API/GET', 'BUTTON'],
+  compPool: [
+    {
+      id: 0,
+      name: 'title',
+      propItems: [
+        {
+          id: 0,
+          name: 'API/GET',
+        },
+        {
+          id: 1,
+          name: 'BUTTON',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'searchbar',
+      propsItems: [
+        {
+          id: 0,
+          name: 'API/GET',
+        },
+      ],
+    },
+  ],
+  propPool: [
+    {
+      id: 0,
+      name: 'API/GET',
+    },
+    {
+      id: 1,
+      name: 'BUTTON',
+    },
+  ],
 };

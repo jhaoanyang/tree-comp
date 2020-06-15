@@ -1,12 +1,14 @@
 <template>
   <div class="comp-card">
-    {{ compPool[compIndex] }}
+    <h3>
+      {{ foundComp.name }}
+    </h3>
     <hr>
     <draggable>
       <PropItem
-        v-for="(prop, index) in propPool"
+        v-for="(prop, index) in foundComp.propItems"
         :key="index"
-        :prop-index="index"
+        :prop="prop"
       />
     </draggable>
   </div>
@@ -24,7 +26,7 @@ export default {
     draggable,
   },
   props: {
-    compIndex: {
+    compId: {
       type: Number,
       default: NaN,
     },
@@ -34,6 +36,14 @@ export default {
       'compPool',
       'propPool',
     ]),
+    foundComp() {
+      return this.compPool.find((item) => item.id === this.compId);
+    },
+  },
+  methods: {
+    log() {
+      console.log(this.compPool);
+    },
   },
 };
 </script>
@@ -41,8 +51,9 @@ export default {
 <style>
 .comp-card {
   background-color: #DAA520;
+  display: inline-block;
   min-height: 200px;
-  width: 400px;
+  width: 200px;
   padding: 10px;
   margin: 10px;
 }

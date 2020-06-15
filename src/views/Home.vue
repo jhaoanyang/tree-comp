@@ -1,22 +1,28 @@
 <template>
   <div class="home">
-    <comp-card
-      v-for="(comp, index) in compPool"
-      :key="index"
-      :comp-index="index"
-    />
+    <home-header />
+    <section>
+      <comp-card
+        v-for="comp in compPool"
+        :key="comp.id"
+        :comp-id="comp.id"
+      />
+    </section>
   </div>
 </template>
 
 <script>
-import CompCard from '@/components/CompCard.vue';
 import { mapState, mapMutations } from 'vuex';
+
+import HomeHeader from '@/components/HomeHeader.vue';
+import CompCard from '@/components/CompCard.vue';
 
 import initState from './test-initState';
 
 export default {
   name: 'Home',
   components: {
+    HomeHeader,
     CompCard,
   },
   data() {
@@ -39,3 +45,9 @@ export default {
   },
 };
 </script>
+
+<style>
+section {
+  padding: 120px 20px;
+}
+</style>

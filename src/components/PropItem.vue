@@ -1,6 +1,6 @@
 <template>
   <div class="prop-item">
-    {{ propPool[propIndex] }}
+    {{ prop.name }}
   </div>
 </template>
 
@@ -9,9 +9,9 @@ import { mapState } from 'vuex';
 
 export default {
   props: {
-    propIndex: {
-      type: Number,
-      default: NaN,
+    prop: {
+      type: Object,
+      default: null,
     },
   },
   computed: {
@@ -25,8 +25,8 @@ export default {
 <style>
     .prop-item {
       background-color: #FFD700;
-      display: inline-block;
+      border-radius: 5px;
       padding: 5px 10px;
-      margin: 5px;
+      margin: 10px;
     }
 </style>
