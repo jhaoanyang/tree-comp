@@ -17,7 +17,7 @@ module.exports = {
     {
       id: 1,
       name: 'searchbar',
-      propsItems: [
+      propItems: [
         {
           id: 0,
           name: 'API/GET',

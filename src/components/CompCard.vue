@@ -1,21 +1,25 @@
 <template>
   <div class="comp-card">
     <h3>
-      {{ foundComp.name }}
+      {{ foundComp(compId).name }}
     </h3>
     <hr>
-    <draggable>
+    <draggable
+      :list="foundComp(compId).propItems"
+      group="a"
+      @change="log"
+    >
       <PropItem
-        v-for="(prop, index) in foundComp.propItems"
-        :key="index"
-        :prop="prop"
+        v-for="(prop) in foundComp(compId).propItems"
+        :key="prop.id"
+        :prop-id="prop.id"
       />
     </draggable>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import draggable from 'vuedraggable';
 
 import PropItem from '@/components/PropItem.vue';
@@ -36,9 +40,9 @@ export default {
       'compPool',
       'propPool',
     ]),
-    foundComp() {
-      return this.compPool.find((item) => item.id === this.compId);
-    },
+    ...mapGetters([
+      'foundComp',
+    ]),
   },
   methods: {
     log() {

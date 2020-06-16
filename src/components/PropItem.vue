@@ -1,22 +1,25 @@
 <template>
   <div class="prop-item">
-    {{ prop.name }}
+    {{ foundProp(propId).name }}
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   props: {
-    prop: {
-      type: Object,
-      default: null,
+    propId: {
+      type: Number,
+      default: NaN,
     },
   },
   computed: {
     ...mapState([
       'propPool',
+    ]),
+    ...mapGetters([
+      'foundProp',
     ]),
   },
 };
