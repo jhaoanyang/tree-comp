@@ -1,18 +1,18 @@
 <template>
   <div class="comp-card">
     <h3>
-      {{ foundComp(compId).name }}
+      {{ foundComp(id).name }}
     </h3>
     <hr>
     <draggable
-      :list="foundComp(compId).propItems"
+      :list="foundComp(id).propList"
       group="a"
       @change="log"
     >
       <PropItem
-        v-for="(prop) in foundComp(compId).propItems"
-        :key="prop.id"
-        :prop-id="prop.id"
+        v-for="(prop) in foundComp(id).propList"
+        :id="prop"
+        :key="prop"
       />
     </draggable>
   </div>
@@ -30,7 +30,7 @@ export default {
     draggable,
   },
   props: {
-    compId: {
+    id: {
       type: Number,
       default: NaN,
     },
@@ -38,16 +38,17 @@ export default {
   computed: {
     ...mapState([
       'compPool',
-      'propPool',
     ]),
     ...mapGetters([
       'foundComp',
     ]),
   },
   methods: {
+  // console 記得刪
     log() {
-      console.log(this.compPool);
+      console.table(this.compPool);
     },
+  // console 記得刪
   },
 };
 </script>
@@ -55,10 +56,9 @@ export default {
 <style>
 .comp-card {
   background-color: #DAA520;
-  display: inline-block;
+  border-radius: 10px;
   min-height: 200px;
-  width: 200px;
   padding: 10px;
-  margin: 10px;
+  width: 200px;
 }
 </style>

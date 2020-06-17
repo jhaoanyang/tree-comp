@@ -1,6 +1,6 @@
 <template>
   <div class="prop-item">
-    {{ foundProp(propId).name }}
+    {{ foundProp(id).name }}
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import { mapState, mapGetters } from 'vuex';
 
 export default {
   props: {
-    propId: {
+    id: {
       type: Number,
       default: NaN,
     },
@@ -29,6 +29,7 @@ export default {
     .prop-item {
       background-color: #FFD700;
       border-radius: 5px;
+      height: 30px;
       padding: 5px 10px;
       margin: 10px;
     }

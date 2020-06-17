@@ -1,19 +1,22 @@
 <template>
-  <header>
-    <h1>Tree-Comp</h1>
-    <div>
-      <input
-        type="file"
-        accept=".json"
-        @change="importHandleChange"
-      >
-      <button
-        @click="exportHandleClick"
-      >
-        Export
-      </button>
-    </div>
-  </header>
+  <div>
+    <header>
+      <h1>Tree-Comp</h1>
+      <div>
+        <input
+          type="file"
+          accept=".json"
+          @change="importHandleChange"
+        >
+        <button
+          @click="exportHandleClick"
+        >
+          Export
+        </button>
+      </div>
+    </header>
+    <div class="back" />
+  </div>
 </template>
 
 <script>
@@ -69,6 +72,7 @@ header {
   padding: 10px;
   position: fixed;
   width: 100vw;
+  z-index: 2;
 
   h1 {
     display: inline;
@@ -87,5 +91,9 @@ header {
     margin: 10px;
     padding: 5px 10px;
   }
+}
+
+.back {
+  height: 100px;
 }
 </style>

@@ -1,13 +1,12 @@
 <template>
   <div class="home">
     <home-header />
-    <section>
-      <comp-card
-        v-for="comp in compPool"
-        :key="comp.id"
-        :comp-id="comp.id"
-      />
-    </section>
+    <section-tree />
+    <section-comp
+      v-for="section in sectionComp"
+      :id="section.id"
+      :key="section.id"
+    />
   </div>
 </template>
 
@@ -15,7 +14,8 @@
 import { mapState, mapMutations } from 'vuex';
 
 import HomeHeader from '@/components/HomeHeader.vue';
-import CompCard from '@/components/CompCard.vue';
+import SectionTree from '@/components/SectionTree.vue';
+import SectionComp from '@/components/SectionComp.vue';
 
 import initState from './test-initState';
 
@@ -23,16 +23,21 @@ export default {
   name: 'Home',
   components: {
     HomeHeader,
-    CompCard,
+    SectionTree,
+    SectionComp,
   },
+
+  // 測試用
   data() {
     return {
       initState,
     };
   },
+  // 開發測試用
+
   computed: {
     ...mapState([
-      'compPool',
+      'sectionComp',
     ]),
   },
   mounted() {
@@ -47,7 +52,4 @@ export default {
 </script>
 
 <style>
-section {
-  padding: 120px 20px;
-}
 </style>
