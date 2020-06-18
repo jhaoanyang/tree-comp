@@ -52,12 +52,6 @@ export default {
 </script>
 
 <style>
-section {
-  padding: 20px;
-  border-top: 1px solid;
-  height: 300px;
-}
-
 .comp-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);

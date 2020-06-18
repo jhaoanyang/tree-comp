@@ -29,6 +29,12 @@
   padding: 0;
 }
 
+section {
+  box-sizing: content-box;
+  border-top: 1px solid;
+  padding: 20px;
+}
+
 // #nav {
 //   padding: 0;
 

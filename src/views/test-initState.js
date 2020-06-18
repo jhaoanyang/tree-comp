@@ -1,4 +1,36 @@
 module.exports = {
+  treePool: [
+    {
+      id: 0,
+      name: 'App.vue',
+      subTrees: [1, 2, 3],
+    },
+    {
+      id: 1,
+      name: 'First Child',
+      subTrees: [4, 5],
+    },
+    {
+      id: 2,
+      name: 'Second Child',
+      subTrees: [],
+    },
+    {
+      id: 3,
+      name: 'Third Child',
+      subTrees: [],
+    },
+    {
+      id: 4,
+      name: 'First Grand Child',
+      subTrees: [],
+    },
+    {
+      id: 5,
+      name: 'Second Grand Child',
+      subTrees: [],
+    },
+  ],
   sectionComp: [
     {
       id: 0,
