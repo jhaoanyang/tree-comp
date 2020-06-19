@@ -2,9 +2,9 @@
   <section>
     <h1>{{ foundSectionComp(id).name }}</h1>
     <draggable
+      v-model="dragListFromVuex"
       class="comp-card-grid"
-      :list="foundSectionComp(id).compList"
-      group="b"
+      group="comp"
       @change="log"
     >
       <comp-card
@@ -40,11 +40,19 @@ export default {
     ...mapGetters([
       'foundSectionComp',
     ]),
+    dragListFromVuex: {
+      get() {
+        return this.foundSectionComp(this.id).compList;
+      },
+      set(value) {
+        console.log('compid', this.id, value);
+      },
+    },
   },
   methods: {
     // console 記得刪
     log() {
-      console.table(this.sectionComp);
+      console.table(this.foundSectionComp(this.id).compList);
     },
     // console 記得刪
   },

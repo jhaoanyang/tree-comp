@@ -40,7 +40,7 @@ export default {
       'sectionComp',
     ]),
   },
-  mounted() {
+  beforeMount() {
     this.LOAD_STATE(initState);
   },
   methods: {

@@ -4,31 +4,57 @@ module.exports = {
       id: 0,
       name: 'App.vue',
       subTrees: [1, 2, 3],
+      compList: [
+        {
+          id: 0,
+          propList: [
+            {
+              id: 0,
+              check: true,
+            },
+            {
+              id: 1,
+              check: true,
+            },
+          ],
+        },
+        {
+          id: 1,
+          propList: [
+            {
+              id: 0,
+              check: true,
+            },
+          ],
+        },
+      ],
+      propList: [
+        {
+          id: 2,
+          check: false,
+        },
+      ],
     },
     {
       id: 1,
       name: 'First Child',
-      subTrees: [4, 5],
+      subTrees: [],
+      compList: [],
+      propList: [],
     },
     {
       id: 2,
       name: 'Second Child',
       subTrees: [],
+      compList: [],
+      propList: [],
     },
     {
       id: 3,
       name: 'Third Child',
       subTrees: [],
-    },
-    {
-      id: 4,
-      name: 'First Grand Child',
-      subTrees: [],
-    },
-    {
-      id: 5,
-      name: 'Second Grand Child',
-      subTrees: [],
+      compList: [],
+      propList: [],
     },
   ],
   sectionComp: [

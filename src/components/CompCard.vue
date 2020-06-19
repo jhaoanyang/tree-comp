@@ -5,9 +5,9 @@
     </h3>
     <hr>
     <draggable
-      :list="foundComp(id).propList"
-      group="a"
-      @change="log"
+      v-model="dragListFromVuex"
+      group="prop"
+      @change="log(id)"
     >
       <PropItem
         v-for="(prop) in foundComp(id).propList"
@@ -42,11 +42,19 @@ export default {
     ...mapGetters([
       'foundComp',
     ]),
+    dragListFromVuex: {
+      get() {
+        return this.foundComp(this.id).propList;
+      },
+      set(value) {
+        console.log('cardid', this.id, value);
+      },
+    },
   },
   methods: {
   // console 記得刪
     log() {
-      console.table(this.compPool);
+      console.table(this.foundComp(this.id).propList);
     },
   // console 記得刪
   },
@@ -55,8 +63,10 @@ export default {
 
 <style>
 .comp-card {
-  background-color: #DAA520;
+  background-color: #eebb4d;
   border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
   min-height: 200px;
   padding: 10px;
   width: 200px;

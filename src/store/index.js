@@ -4,12 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    treePool: Array,
-    sectionComp: Array,
-    compPool: Array,
-    propPool: Array,
-  },
+  state: {},
   getters: {
     foundTree: (state) => (id) => state.treePool.find((item) => item.id === id),
     foundSectionComp: (state) => (id) => state.sectionComp.find((item) => item.id === id),
@@ -18,10 +13,7 @@ export default new Vuex.Store({
   },
   mutations: {
     LOAD_STATE(state, obj) {
-      state.treePool = obj.treePool;
-      state.sectionComp = obj.sectionComp;
-      state.compPool = obj.compPool;
-      state.propPool = obj.propPool;
+      Object.assign(state, obj);
     },
   },
   actions: {},

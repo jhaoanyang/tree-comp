@@ -65,11 +65,11 @@ export default {
 <style lang="scss">
 header {
   align-items: center;
-  background-color: #f7fbe1;
+  background-color: #d6efc7;
   display: flex;
   height: 100px;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px;
   position: fixed;
   width: 100vw;
   z-index: 2;
@@ -79,14 +79,14 @@ header {
   }
 
   input {
-    background-color: #bac964;
+    background-color: #96bb7c;
     border: 0px;
     margin: 10px;
     padding: 2px 10px;
   }
 
   button {
-    background-color: #bac964;
+    background-color: #96bb7c;
     border: 0px;
     margin: 10px;
     padding: 5px 10px;
