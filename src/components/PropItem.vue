@@ -1,6 +1,6 @@
 <template>
   <div class="prop-item">
-    {{ foundProp(id).name }}
+    {{ foundItem('propPool', id).name }}
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
       'propPool',
     ]),
     ...mapGetters([
-      'foundProp',
+      'foundItem',
     ]),
   },
 };

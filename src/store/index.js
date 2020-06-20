@@ -6,10 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {},
   getters: {
-    foundTree: (state) => (id) => state.treePool.find((item) => item.id === id),
-    foundSectionComp: (state) => (id) => state.sectionComp.find((item) => item.id === id),
-    foundComp: (state) => (id) => state.compPool.find((item) => item.id === id),
-    foundProp: (state) => (id) => state.propPool.find((item) => item.id === id),
+    foundItem: (state) => (poolName, id) => state[poolName].find((item) => item.id === id),
   },
   mutations: {
     LOAD_STATE(state, obj) {

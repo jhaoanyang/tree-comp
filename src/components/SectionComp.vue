@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>{{ foundSectionComp(id).name }}</h1>
+    <h1>{{ foundItem('sectionComp', id).name }}</h1>
     <draggable
       v-model="dragListFromVuex"
       class="comp-card-grid"
@@ -8,7 +8,7 @@
       @change="log"
     >
       <comp-card
-        v-for="comp in foundSectionComp(id).compList"
+        v-for="comp in foundItem('sectionComp', id).compList"
         :id="comp"
         :key="comp"
       />
@@ -38,11 +38,11 @@ export default {
       'sectionComp',
     ]),
     ...mapGetters([
-      'foundSectionComp',
+      'foundItem',
     ]),
     dragListFromVuex: {
       get() {
-        return this.foundSectionComp(this.id).compList;
+        return this.foundItem('sectionComp', this.id).compList;
       },
       set(value) {
         console.log('compid', this.id, value);
@@ -52,7 +52,7 @@ export default {
   methods: {
     // console 記得刪
     log() {
-      console.table(this.foundSectionComp(this.id).compList);
+      console.table(this.foundItem('sectionComp', this.id).compList);
     },
     // console 記得刪
   },

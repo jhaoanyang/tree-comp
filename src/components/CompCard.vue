@@ -1,7 +1,7 @@
 <template>
   <div class="comp-card">
     <h3>
-      {{ foundComp(id).name }}
+      {{ foundItem('compPool', id).name }}
     </h3>
     <hr>
     <draggable
@@ -10,7 +10,7 @@
       @change="log(id)"
     >
       <PropItem
-        v-for="(prop) in foundComp(id).propList"
+        v-for="(prop) in foundItem('compPool', id).propList"
         :id="prop"
         :key="prop"
       />
@@ -40,11 +40,11 @@ export default {
       'compPool',
     ]),
     ...mapGetters([
-      'foundComp',
+      'foundItem',
     ]),
     dragListFromVuex: {
       get() {
-        return this.foundComp(this.id).propList;
+        return this.foundItem('compPool', this.id).propList;
       },
       set(value) {
         console.log('cardid', this.id, value);
@@ -54,7 +54,7 @@ export default {
   methods: {
   // console 記得刪
     log() {
-      console.table(this.foundComp(this.id).propList);
+      console.table(this.foundItem('compPool', this.id).propList);
     },
   // console 記得刪
   },

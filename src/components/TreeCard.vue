@@ -2,7 +2,7 @@
   <li>
     <div class="tree-card">
       <h3>
-        {{ foundTree(id).name }}
+        {{ foundItem('treePool', id).name }}
       </h3>
       <hr>
       <draggable
@@ -11,7 +11,7 @@
         @change="log"
       >
         <comp-card
-          v-for="comp in foundTree(id).compList"
+          v-for="comp in foundItem('treePool', id).compList"
           :id="comp.id"
           :key="comp.id"
         />
@@ -19,11 +19,11 @@
       <hr>
     </div>
     <template
-      v-if="foundTree(id).subTrees.length !== 0"
+      v-if="foundItem('treePool', id).subTrees.length !== 0"
     >
       <ul>
         <tree-card
-          v-for="tree in foundTree(id).subTrees"
+          v-for="tree in foundItem('treePool', id).subTrees"
           :id="tree"
           :key="tree"
         />
@@ -55,11 +55,11 @@ export default {
       'treePool',
     ]),
     ...mapGetters([
-      'foundTree',
+      'foundItem',
     ]),
     dragListFromVuex: {
       get() {
-        return this.foundTree(this.id).compList;
+        return this.foundItem('treePool', this.id).compList;
       },
       set(value) {
         console.log('treeid', this.id, value);
@@ -69,7 +69,7 @@ export default {
   methods: {
     // console 記得刪
     log() {
-      console.table(this.foundTree(this.id).compList);
+      console.table(this.foundItem('treePool', this.id).compList);
     },
     // console 記得刪
   },
