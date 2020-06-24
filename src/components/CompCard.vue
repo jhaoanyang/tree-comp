@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import draggable from 'vuedraggable';
 
 import PropItem from '@/components/PropItem.vue';
@@ -46,13 +46,18 @@ export default {
       get() {
         return this.foundItem('compPool', this.id).propList;
       },
-      set(value) {
-        console.log('cardid', this.id, value);
+      set(newList) {
+        this.uploadList({
+          poolName: 'compPool', id: this.id, listName: 'propList', newList,
+        });
       },
     },
   },
   methods: {
-  // console 記得刪
+    ...mapActions([
+      'uploadList',
+    ]),
+    // console 記得刪
     log() {
       console.table(this.foundItem('compPool', this.id).propList);
     },

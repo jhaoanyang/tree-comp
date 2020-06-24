@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import draggable from 'vuedraggable';
 
 import CompCard from '@/components/CompCard.vue';
@@ -61,12 +61,17 @@ export default {
       get() {
         return this.foundItem('treePool', this.id).compList;
       },
-      set(value) {
-        console.log('treeid', this.id, value);
+      set(newList) {
+        this.uploadList({
+          poolName: 'treePool', id: this.id, listName: 'compList', newList,
+        });
       },
     },
   },
   methods: {
+    ...mapActions([
+      'uploadList',
+    ]),
     // console 記得刪
     log() {
       console.table(this.foundItem('treePool', this.id).compList);

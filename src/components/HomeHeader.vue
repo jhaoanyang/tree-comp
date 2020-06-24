@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -36,13 +36,13 @@ export default {
     ]),
   },
   methods: {
-    ...mapMutations([
-      'LOAD_STATE',
+    ...mapActions([
+      'loadState',
     ]),
     importHandleChange(e) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        this.LOAD_STATE(JSON.parse(event.target.result));
+        this.loadState(JSON.parse(event.target.result));
       };
       reader.readAsText(e.target.files[0]);
     },

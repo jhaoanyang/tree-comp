@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import draggable from 'vuedraggable';
 
 import CompCard from '@/components/CompCard.vue';
@@ -44,12 +44,17 @@ export default {
       get() {
         return this.foundItem('sectionComp', this.id).compList;
       },
-      set(value) {
-        console.log('compid', this.id, value);
+      set(newList) {
+        this.uploadList({
+          poolName: 'sectionComp', id: this.id, listName: 'compList', newList,
+        });
       },
     },
   },
   methods: {
+    ...mapActions([
+      'uploadList',
+    ]),
     // console 記得刪
     log() {
       console.table(this.foundItem('sectionComp', this.id).compList);
